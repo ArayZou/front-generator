@@ -1,0 +1,26 @@
+{
+  "name": "gulp-StaticFileServer",
+  "version": "0.0.1",
+  "description": "静态文件服务器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArayZou/gulp-StaticFileServer.git"
+  },
+  "keywords": [
+    "静态文件服务器"
+  ],
+  "author": "arayzou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArayZou/gulp-StaticFileServer/issues"
+  },
+  "homepage": "https://github.com/ArayZou/gulp-StaticFileServer",
+  "dependencies": {
+    "browser-sync": "^2.4.0",
+    "gulp": "^3.8.11"
+  }
+}
