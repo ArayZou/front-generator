@@ -3,8 +3,8 @@ front-generator
 best FE generator in my mind with webpack,less,babel
 
 # 使用
-<pre><code class="cli">
-	npm start
+<pre><code class="cli">//启动本地热替换调试服务器
+npm start
 </code></pre>
 
 # 理想中的前端脚手架应该要具备哪些必要特性？
