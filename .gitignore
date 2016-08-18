@@ -159,5 +159,9 @@ $RECYCLE.BIN/
 .DS_Store
 /node_modules
 
+.idea
+.happypack
+dist/
+
 
 
