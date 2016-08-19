@@ -2,11 +2,12 @@
   "name": "front-generator",
   "version": "1.0.0",
   "description": "best FE generator in my mind with webpack,less,babel",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "start": "rm -rf dist && webpack && webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.config.js",
     "build": "rm -rf dist && webpack -p --progress --colors",
     "dist": "export NODE_ENV=prod&&webpack -p --progress --colors",
+    "dist-windows": "SET NODE_ENV=prod&&webpack -p --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,14 +36,15 @@
     "happypack": "^2.2.1",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.22.0",
-    "jquery": "^3.1.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "raw-loader": "^0.5.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "^3.1.0"
   }
 }

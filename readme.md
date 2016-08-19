@@ -3,7 +3,7 @@ front-generator
 best FE generator in my mind with webpack,less,babel
 
 ## 使用
-<pre><code class="cli">//启动本地热替换调试服务器
+<pre><code class="cli">//启动本地热替换调试服务器,地址：http://localhost:6066/html/
 npm start
 
 //打测试包
@@ -26,14 +26,53 @@ npm run dist
 
 ## 脚手架设计：
 
+├── /dist/
 
+│   ├── /img
 
-## 脚手架不可能完全适合自己，开发者必须要有一定的框架设计能力
+│   ├── /less
+
+│   └── /js/
+
+│   /html/
+
+├── /src/
+
+│   ├── /img
+
+│   ├── /less
+
+│   	├── /page
+
+│   	├── /common
+
+│   	└── /components
+
+│   └── /js
+
+│   	├── /page
+
+│   	└── /components
+
+│── .gitignore
+
+│── readme.md
+
+│── package.json
+
+└── webpack.config.js
+
+## todo
+<del>1、html修改后需要手动刷新，webpack没有太好的办法处理</del>
+
+### 脚手架不可能完全适合自己，开发者必须要有一定的框架设计能力
 
 ## 参考
 <a href="http://www.alloyteam.com/2016/01/webpack-use-optimization/" target="_blank">http://www.alloyteam.com/2016/01/webpack-use-optimization/</a>
+
 <a href="https://segmentfault.com/a/1190000004516832" target="_blank">https://segmentfault.com/a/1190000004516832</a>
+
 <a href="https://segmentfault.com/a/1190000003499526#articleHeader11" target="_blank">https://segmentfault.com/a/1190000003499526#articleHeader11</a>
+
 <a href="http://eternalsky.me/ru-he-10-bei-ti-gao-ni-de-webpack-gou-jian-xiao-lu/" target="_blank">http://eternalsky.me/ru-he-10-bei-ti-gao-ni-de-webpack-gou-jian-xiao-lu/</a>
-<a href="" target="_blank"></a>
 

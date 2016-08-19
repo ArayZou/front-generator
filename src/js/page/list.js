@@ -1,11 +1,12 @@
 //引入css
-require("../../less/components/reset.less");
-require("../../less/common/global.less");
-require("../../less/common/grid.less");
-require("../../less/page/list.less");
+import '../../less/common/reset.less';
+import '../../less/common/preset.less';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css';
+import '../../less/page/list.less';
 
-
-import $ from 'jquery';
+import 'jquery';
+import 'bootstrap';
 
 var html = '';
 for(var i=0;i<5;i++){

@@ -1,10 +1,13 @@
 //引入css
-require("../../less/components/reset.less");
-require("../../less/common/global.less");
-require("../../less/common/grid.less");
-require("../../less/page/about.less");
+//引入css
+import '../../less/common/reset.less';
+import '../../less/common/preset.less';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css';
+import '../../less/page/about.less';
 
-import $ from 'jquery';
+import 'jquery';
+import 'bootstrap';
 
 
 $('#about').html('这是一个关于webpack构建工程的栗子');

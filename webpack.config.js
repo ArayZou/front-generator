@@ -25,7 +25,6 @@ var config = {
     entry: entries,
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: '../',
         filename: 'js/[name].js'
     },
     module: {
@@ -42,7 +41,8 @@ var config = {
                 exclude: /node_modules/ //排除编译node_modules
             },{
                 test: /\.html$/,
-                loader: "html?-minimize"    //避免压缩html,https://github.com/webpack/html-loader/issues/50
+                // loader: "html?-minimize"    //避免压缩html,https://github.com/webpack/html-loader/issues/50
+                loader: "raw-loader"
             }, {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'file-loader?name=fonts/[name].[ext]'
@@ -64,6 +64,12 @@ var config = {
         ];
     },
     plugins: [
+        // 提供jQuery的全局变量，针对bootstrap之类的组件使用，如不需要可以删除
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        //热替换
         new webpack.HotModuleReplacementPlugin(),
         new CommonsChunkPlugin({
             // CommonsChunkPlugin自动检查entries里的公共组件包括js和less，生成common.js和common.css
@@ -71,9 +77,10 @@ var config = {
             chunks: chunks,
             minChunks: chunks.length // 提取所有entry共同依赖的模块
         }),
+        //单独使用link标签加载css并设置路径，相对于output配置中的publickPath
         new ExtractTextPlugin(
             'css/[name].css'
-        ), //单独使用link标签加载css并设置路径，相对于output配置中的publickPath
+        ),
         new HappyPack({
             //用happypack做多线程编译
             loaders: [ 'babel?presets[]=es2015' ],
@@ -89,20 +96,18 @@ var config = {
     resolve: {
         root: path.resolve('/'),
         modulesDirectories: ['node_modules'],
-        extensions: ['', '.js', '.jsx','.less','.css','.png','.jpg'],
+        extensions: ['', '.js', '.jsx','.less','.css','.png','.jpg','.html'],
         alias:{
             // 设置公共组件的文件位置，方便webpack检索，优化编译时间
             'jquery':path.join(nodeModulesPath,'/jquery/dist/jquery.min.js')
         }
     },
-    cache:true,
+    // cache:true,
     devServer: {
         inline:true,
         contentBase: "./dist",
         port:devPort,
-        historyApiFallback: false,
         hot: true,
-        publicPath: '/',
         noInfo: false
     }
 };
@@ -111,7 +116,7 @@ var config = {
 var pages = Object.keys(getEntry('src/html/**/*.html', 'src/html/'));
 pages.forEach(function(pathname) {
     var conf = {
-        filename: '../dist/html/' + pathname + '.html', //生成的html存放路径，相对于path
+        filename: 'html/' + pathname + '.html', //生成的html存放路径，相对于path
         template: 'src/html/' + pathname + '.html', //html模板路径
         inject: false,    //js插入的位置，true/'head'/'body'/false
     };
