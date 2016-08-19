@@ -28,15 +28,17 @@ npm run dist
 
 ├── /dist/
 
+│   ├── /html/
+
 │   ├── /img
 
 │   ├── /less
 
 │   └── /js/
 
-│   /html/
-
 ├── /src/
+
+│   ├── /html/
 
 │   ├── /img
 
