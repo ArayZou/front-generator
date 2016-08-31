@@ -48,7 +48,7 @@ var config = {
                 loader: 'file-loader?name=fonts/[name].[ext]'
             }, {
                 test: /\.(png|jpe?g|gif)$/,
-                loader: 'url-loader?limit=2048&name=imgs/[name]-[hash].[ext]'
+                loader: 'url-loader?limit=8192&name=../img/[name]-[hash].[ext]'
             }
         ]
     },
