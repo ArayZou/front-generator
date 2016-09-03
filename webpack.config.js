@@ -25,7 +25,8 @@ var config = {
     entry: entries,
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].js',
+        publicPath: "/"
     },
     module: {
         loaders: [ //加载器
@@ -48,7 +49,7 @@ var config = {
                 loader: 'file-loader?name=fonts/[name].[ext]'
             }, {
                 test: /\.(png|jpe?g|gif)$/,
-                loader: 'url-loader?limit=8192&name=../img/[name]-[hash].[ext]'
+                loader: 'url-loader?limit=8192&name=img/[name]-[hash].[ext]'
             }
         ]
     },
@@ -116,7 +117,7 @@ var config = {
 var pages = Object.keys(getEntry('src/html/**/*.html', 'src/html/'));
 pages.forEach(function(pathname) {
     var conf = {
-        filename: 'html/' + pathname + '.html', //生成的html存放路径，相对于path
+        filename: '' + pathname + '.html', //生成的html存放路径，相对于path
         template: 'src/html/' + pathname + '.html', //html模板路径
         inject: false,    //js插入的位置，true/'head'/'body'/false
     };

@@ -7,8 +7,8 @@
     "start": "webpack-dev-server --config webpack.config.js",
     "build": "rm -rf dist && webpack -p --progress --colors",
     "hotbuild": "rm -rf dist && webpack -p --progress --colors --watch",
-    "dist": "export NODE_ENV=prod&&webpack -p --progress --colors",
-    "dist-windows": "SET NODE_ENV=prod&&webpack -p --progress --colors",
+    "dist": "rm -rf dist && export NODE_ENV=prod&&webpack -p --progress --colors",
+    "dist-windows": "rm -rf dist && SET NODE_ENV=prod&&webpack -p --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
